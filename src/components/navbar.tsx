@@ -8,6 +8,7 @@ const Navbar = () => {
                     href="#home"
                     className="flex items-center gap-2"
                 >
+                    <img src="/images/logo.png" alt="logo" />
                     <p>
                         Velvet Pour
                     </p>
