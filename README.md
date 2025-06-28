@@ -52,3 +52,19 @@ export default tseslint.config({
   },
 })
 ```
+
+## Useful commands
+
+```bash
+# Start the dev server
+npm run dev
+
+# Build the app
+npm run build
+
+# Lint the code
+npm run lint
+
+# Run the ffmpeg command to convert the video animation
+ffmpeg -i input.mp4 -vf scale=960:-1 -movflags faststart -vcodec libx264 -crf 20 -g 1 -pix_fmt yuv420p output.mp4
+```
