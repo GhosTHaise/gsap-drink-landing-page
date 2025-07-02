@@ -16,7 +16,7 @@ const Art = () => {
                 start,
                 end: "bottom center",
                 scrub: 1.5,
-                pin: true
+                pin: true,
             }
         });
 
@@ -30,6 +30,11 @@ const Art = () => {
                 scale : 1.3,
                 maskPosition : "center",
                 maskSize : "400%",
+                duration : 1,
+                ease : "power1.inOut"
+            })
+            .to("#masked-content", {
+                opacity : 1,
                 duration : 1,
                 ease : "power1.inOut"
             })
