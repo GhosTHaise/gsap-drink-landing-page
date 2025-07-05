@@ -1,9 +1,32 @@
 import { useRef, useState } from "react"
 import { sliderLists } from "../constants"
+import { useGSAP } from "@gsap/react"
+import gsap from "gsap/all"
 
 const Menu = () => {
   const contentRef = useRef(null)
   const [currentIndex, setCurrentIndex] = useState(0)
+
+  useGSAP(() => {
+    gsap.timeline({
+      scrollTrigger : {
+        trigger : "#menu",
+        start : "top 50%",
+        end : "bottom top",
+        scrub : true
+      }
+    })
+    .to("#m-right-leaf", { y : 200 },0)
+    .to("#m-left-leaf", { y : 200 },0)
+  },[])
+
+  useGSAP(() => {
+    gsap.fromTo("#title",{opacity : 0} , {opacity : 1, duration : 1});
+    gsap.fromTo(".cocktail img", {opacity : 0 , xPercent : -100},{xPercent : 0, opacity : 1, duration : 1, ease : "power1.inOut"});
+    gsap.fromTo(".details h2", { yPercent : 100, opacity : 0}, {yPercent : 0, opacity : 1 , ease : "power1.inOut"});
+    gsap.fromTo(".details p", {yPercent : 100, opacity : 0}, {yPercent : 0, opacity : 100, ease : "power1.inOut"})
+   },
+   [currentIndex])
 
   const totalCocktails = sliderLists.length
   const goToSlide = (index: number) => {
